@@ -1,0 +1,49 @@
+@use "./styles/pallet.scss";
+@import url('./styles/normilize.scss');
+
+.App {
+  background: pallet.$bkg;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
+  min-height: 100vh;
+  width: 100%;
+  min-width: 780px;
+  position: relative;
+  direction: ltr;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+  /* Style the scrollbar itself (works in WebKit-based browsers, such as Chrome, Safari) */
+  ::-webkit-scrollbar {
+    width: 6px; /* width of the entire scrollbar */
+    height: 6px; /* height of the entire scrollbar */
+  }
+
+/* Style the scrollbar track */
+::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+
+/* Style the scrollbar handle */
+  ::-webkit-scrollbar-thumb {
+    background: #eee; /* color of the scroll thumb */
+    border-radius: 6px; /* roundness of the scroll thumb */
+    
+    &:hover {
+      background: #666; /* color when hovering over the scroll thumb */
+    }
+  }
+
+  /* For Internet Explorer and Edge */
+  body {
+    scrollbar-base-color: #eee; /* IE/Edge scrollbar base color */
+    scrollbar-face-color: #eee; /* IE/Edge scrollbar thumb color */
+    scrollbar-track-color: transparent; /* IE/Edge scrollbar track color */
+  }
+}

@@ -1,0 +1,105 @@
+@use "../styles/pallet.scss";
+.dropdown {
+    position: relative;
+    width: 20rem;
+    .dropdown-select {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      height: 3rem;
+      padding: 8px;
+      border: pallet.$border;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      background-color: pallet.$white;
+      &::after {
+        content: "⌄";
+        font-size: 2rem;
+        position: absolute;
+        bottom: 40%;
+        right: 10%;
+      }
+      &.active {
+        border: pallet.$border-hover;
+        box-shadow: pallet.$primary-box-shadow;
+        &::after {
+          transform: rotate(180deg);
+          bottom: 20%;
+        }
+      }
+      .dropdown-item {
+        margin: 0.1rem;
+        padding: 0.5rem 0.75rem;
+        background-color: pallet.$white;
+        border-radius: pallet.$border-radius;
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+  
+        &:hover {
+          background-color: pallet.$light-primary;
+        }
+  
+        &.selected {
+          background-color: pallet.$light-primary;
+          color: pallet.$primary;
+        }
+      }
+      p {
+        max-width: 80%;
+        height: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1rem;
+        margin: 0.5rem;
+      }
+    }
+    input {
+      width: 0;
+      height: 0;
+      position: fixed;
+      top: -100%;
+      left: -100%;
+    }
+    .dropdown-menu {
+      position: absolute;
+      width: 100%;
+      max-height: 10rem;
+      background-color: pallet.$white;
+      border: pallet.$border;
+      border-top: none;
+      border-radius: pallet.$border-radius-sm;
+      z-index: 1000;
+      box-shadow: pallet.$box-shadow;
+      overflow: auto;
+      // overflow: hidden;
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0;
+        width: 100%;
+        li {
+          width: 100%;
+          height: 2rem;
+          padding: 0.5rem;
+          font-weight: bolder;
+          &:hover {
+            background: pallet.$light-primary;
+          }
+          &.selected {
+            background: pallet.$light-primary;
+            &::after {
+              content: "✓";
+              color:  pallet.$primary;
+              position: absolute;
+              right: 5%;
+            }
+          }
+        }
+      }
+    }
+  }
